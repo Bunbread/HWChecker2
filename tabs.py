@@ -38,7 +38,7 @@ def gcd():
     with st.form(key="gcd"):
         st.caption("วิธีใช้: ใส่ข้อคณิตศาสตร์ (แยกข้อด้วยเว้นวรรค) เช่น 1,2,3 4,5,6 3,6,7 ถ้าใส่ผิดพลาดอาจเกิดข้อผิดพลาดได้")
         user_gcd = st.text_input("ใส่ข้อคณิตศาสตร์ (แยกข้อด้วยเว้นวรรค): ")
-        submit = st.form_submit_button()
+        submit = st.form_submit_button("ยืนยัน")
         if submit:
             if user_gcd != "":  
                 parts = user_gcd.split()
@@ -67,7 +67,7 @@ def lcm():
     with st.form(key="lcm"):
             st.caption("วิธีใช้: ใส่ข้อคณิตศาสตร์ (แยกข้อด้วยเว้นวรรค) เช่น 1,2,3 4,5,6 3,6,7 ถ้าใส่ผิดพลาดอาจเกิดข้อผิดพลาดได้")
             user_lcm = st.text_input("ใส่ข้อคณิตศาสตร์ (แยกข้อด้วยเว้นวรรค): ")
-            submit = st.form_submit_button()
+            submit = st.form_submit_button("ยืนยัน")
             if submit:
                 if user_lcm != "":  
                     parts = user_lcm.split()
