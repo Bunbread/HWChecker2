@@ -4,18 +4,11 @@ from tabs import *
 st.header("MathHWChecker")
 st.caption("เฉลยการบ้านคณิต")
 
-tab1, tab2 = st.tabs(["คณิตศาสตร์", "อื่นๆ"])
+user = st.selectbox("เลือกเนื้อหา", ["ค.ร.น.", "ห.ร.ม."])
+st.divider()
 
-with tab1:
-    user = st.selectbox("เลือกเนื้อหา", ["ค.ร.น.", "ห.ร.ม."])
-    st.divider()
+if user == "ค.ร.น.":
+    lcm()
 
-    if user == "ค.ร.น.":
-        lcm()
-
-    if user == "ห.ร.ม.":
-        gcd()
-
-with tab2:
-    st.header("Work In Progress")
-    st.subheader("ยังไม่เสร็จ")
+if user == "ห.ร.ม.":
+    gcd()
