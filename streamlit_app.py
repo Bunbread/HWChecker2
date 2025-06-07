@@ -17,4 +17,5 @@ with tab1:
         gcd()
 
 with tab2:
-    "ยังไม่เสร็จ"
+    st.header("Work In Progress")
+    st.subheader("ยังไม่เสร็จ")
