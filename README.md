@@ -1,4 +1,4 @@
-## #My Homework Checker
+## My Homework Checker
 
 A Streamlit web application designed to help students with their math homework, offering a problem solver and utility tools.
 
