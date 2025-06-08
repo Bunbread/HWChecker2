@@ -1,51 +1,21 @@
-import math, streamlit as st
-
-def is_prime(n):
-    if n <= 1:
-        return False
-
-    if n <= 3:
-        return True  
-
-    if n % 2 == 0 or n % 3 == 0:
-        return False  
-
-    i = 5
-    while i * i <= n:
-        if n % i == 0 or n % (i + 2) == 0:
-            return False
-        i += 6
-
-    return True
-
-def get_prime_factors(n):
-    factors = []
-    d = 2
-    temp_n = n
-    while d * d <= temp_n:
-        if temp_n % d == 0:
-            factors.append(d)
-            temp_n //= d
-        else:
-            d += 1
-    if temp_n > 1:
-        factors.append(temp_n)
-    return factors
+import math
+import streamlit as st
+from functions import *
 
 def gcd():
-    st.header("ห.ร.ม.")
-    st.caption("หารร่วมมาก")
-    with st.form(key="gcd"):
+    st.header("ค.ร.น.")
+    st.caption("คูณร่วมน้อย")
+    with st.form(key="lcm"):
         st.caption("วิธีใช้: ใส่ข้อคณิตศาสตร์ (แยกข้อด้วยเว้นวรรค) เช่น 1,2,3 4,5,6 3,6,7 ถ้าใส่ผิดพลาดอาจเกิดข้อผิดพลาดได้")
-        user_gcd = st.text_input("ใส่ข้อคณิตศาสตร์ (แยกข้อด้วยเว้นวรรค): ")
+        user_lcm = st.text_input("ใส่ข้อคณิตศาสตร์ (แยกข้อด้วยเว้นวรรค): ")
         submit = st.form_submit_button("ยืนยัน")
         if submit:
-            if user_gcd != "":  
-                parts = user_gcd.split()
+            if user_lcm != "":  
+                parts = user_lcm.split()
                 nested_list = [[int(x) for x in part.split(',')] for part in parts]
 
                 for i in nested_list:
-                    result = math.gcd(*i)
+                    result = math.lcm(*i)
 
                     if result > 1:
                         prime_factors = get_prime_factors(result)
@@ -55,26 +25,26 @@ def gcd():
 
                     formatted_list = ", ".join(str(num) for num in i)
                     if is_prime(result) or result == 1:
-                        st.success(f"ห.ร.ม. ของ {formatted_list} คือ {result:,}")
+                        st.success(f"ค.ร.น. ของ {formatted_list} คือ {result:,}")
                     else:
-                        st.success(f"ห.ร.ม. ของ {formatted_list} คือ {formula_display} = {result:,}")
-        if user_gcd == "":
-                st.warning("โปรดใส่โจทย์คณิตศาสตร์")
+                        st.success(f"ค.ร.น. ของ {formatted_list} คือ {formula_display} = {result:,}")
+        if user_lcm == "":
+            st.warning("โปรดใส่โจทย์คณิตศาสตร์")
 
 def lcm():
-    st.header("ค.ร.น.")
-    st.caption("คูณร่วมน้อย")
-    with st.form(key="lcm"):
+    st.header("ห.ร.ม.")
+    st.caption("หารร่วมมาก")
+    with st.form(key="gcd"):
             st.caption("วิธีใช้: ใส่ข้อคณิตศาสตร์ (แยกข้อด้วยเว้นวรรค) เช่น 1,2,3 4,5,6 3,6,7 ถ้าใส่ผิดพลาดอาจเกิดข้อผิดพลาดได้")
-            user_lcm = st.text_input("ใส่ข้อคณิตศาสตร์ (แยกข้อด้วยเว้นวรรค): ")
+            user_gcd = st.text_input("ใส่ข้อคณิตศาสตร์ (แยกข้อด้วยเว้นวรรค): ")
             submit = st.form_submit_button("ยืนยัน")
             if submit:
-                if user_lcm != "":  
-                    parts = user_lcm.split()
+                if user_gcd != "":  
+                    parts = user_gcd.split()
                     nested_list = [[int(x) for x in part.split(',')] for part in parts]
 
                     for i in nested_list:
-                        result = math.lcm(*i)
+                        result = math.gcd(*i)
 
                         if result > 1:
                             prime_factors = get_prime_factors(result)
@@ -84,8 +54,8 @@ def lcm():
 
                         formatted_list = ", ".join(str(num) for num in i)
                         if is_prime(result) or result == 1:
-                            st.success(f"ค.ร.น. ของ {formatted_list} คือ {result:,}")
+                            st.success(f"ห.ร.ม. ของ {formatted_list} คือ {result:,}")
                         else:
-                            st.success(f"ค.ร.น. ของ {formatted_list} คือ {formula_display} = {result:,}")
-            if user_lcm == "":
-                st.warning("โปรดใส่โจทย์คณิตศาสตร์")
+                            st.success(f"ห.ร.ม. ของ {formatted_list} คือ {formula_display} = {result:,}")
+            if user_gcd == "":
+                    st.warning("โปรดใส่โจทย์คณิตศาสตร์")
