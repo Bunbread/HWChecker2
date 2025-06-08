@@ -11,3 +11,5 @@ Link: https://myhwchecker-public.streamlit.app/
 * **Greatest Common Diviser (GCD) Calculator:** Easily find the Greatest Common Diviser for a set of numbers (e.g., enter `1,2,3 4,5,6` to find the GCD for each set).
 
 Adding More Soon..
+
+* **Note:** Now Only Support Thai Language
