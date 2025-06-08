@@ -13,10 +13,10 @@ with tab1:
     st.divider()
 
     if user == "ค.ร.น.":
-        lcm()
+        gcd()
 
     if user == "ห.ร.ม.":
-        gcd()
+        lcm()
 
 with tab2:
     st.header("อื่นๆ")
